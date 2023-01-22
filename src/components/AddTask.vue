@@ -36,6 +36,11 @@ export default {
     onSubmit(e) {
       e.preventDefault();
 
+      if (!this.text) {
+        alert("Please add a task");
+        return;
+      }
+
       const newTask = {
         id: Math.floor(Math.random() * 10000),
         text: this.text,

@@ -1,7 +1,12 @@
 <template>
   <div class="container">
-    <HeaderTask title="Task Tracker" />
-    <AddTask @add-task="addTask" />
+    <HeaderTask
+      @toggle-addtask="toggleAddTask"
+      title="Task Tracker"
+      :showAddTask="showAddTask"
+    />
+    <div v-show="showAddTask"><AddTask @add-task="addTask" /></div>
+
     <TaskPage
       @toggle-reminder="toggleReminder"
       @delete-task="deleteTask"
@@ -24,6 +29,7 @@ export default {
   data() {
     return {
       tasks: [],
+      showAddTask: false,
     };
   },
   methods: {
@@ -31,7 +37,7 @@ export default {
       this.tasks = [...this.tasks, newTask];
     },
     deleteTask(id) {
-      if (confirm("Are you sure?")) {
+      if (confirm("Are you sure you want to delete ?")) {
         this.tasks = this.tasks.filter((item) => item.id !== id);
       }
     },
@@ -39,6 +45,9 @@ export default {
       this.tasks = this.tasks.map((item) =>
         item.id === id ? { ...item, reminder: !item.reminder } : item
       );
+    },
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask;
     },
   },
 
