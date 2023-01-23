@@ -11,7 +11,8 @@
       ></i>
     </h3>
 
-    <p>{{ task.day }}</p>
+    <span>{{ task.day }}</span>
+    <span>{{ task.time }}</span>
   </div>
 </template>
 
@@ -46,5 +47,8 @@ export default {
 }
 .reminder {
   border-left: 5px solid green;
+}
+.task span {
+  margin-right: 8px;
 }
 </style>

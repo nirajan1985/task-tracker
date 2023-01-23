@@ -1,0 +1,18 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Doctor Appointment",
+      "day": "01/25/2023",
+      "time": "10:00 ",
+      "reminder": true
+    },
+    {
+      "text": "appointment barnehage",
+      "day": "2023-01-25",
+      "time": "11:45",
+      "reminder": true,
+      "id": 2
+    }
+  ]
+}

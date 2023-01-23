@@ -5,13 +5,12 @@
       <input type="text" v-model="text" name="text" placeholder="Add Task" />
     </div>
     <div class="form-control">
-      <label>Day & Time</label>
-      <input
-        type="date"
-        v-model="day"
-        name="day"
-        placeholder="Add Day & Time"
-      />
+      <label>Day</label>
+      <input type="date" v-model="day" name="day" placeholder="Add Date" />
+    </div>
+    <div class="form-control">
+      <label>Time</label>
+      <input type="time" v-model="time" name="time" placeholder="Choose time" />
     </div>
     <div class="form-control form-control-check">
       <label>Set Reminder</label>
@@ -29,6 +28,7 @@ export default {
     return {
       text: "",
       day: "",
+      time: "",
       reminder: false,
     };
   },
@@ -42,13 +42,19 @@ export default {
       }
 
       const newTask = {
-        id: Math.floor(Math.random() * 10000),
+        /* id: Math.floor(Math.random() * 10000), */
         text: this.text,
         day: this.day,
+        time: this.time,
         reminder: this.reminder,
       };
+      console.log(newTask);
       this.$emit("add-task", newTask);
-      (this.id = ""), (this.text = ""), (this.day = ""), (this.reminder = "");
+      (this.id = ""),
+        (this.text = ""),
+        (this.day = ""),
+        (this.reminder = ""),
+        (this.time = "");
     },
   },
 };
